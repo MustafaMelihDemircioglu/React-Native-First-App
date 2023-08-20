@@ -196,7 +196,7 @@ const App = () => {
         <NavigationContainer>
             <Tabs.Navigator>
                 <Tabs.Screen name="Home" component={Home2} />
-                <Tabs.Screen name="Apps" component={AppStack} options={{headerShown: false}}/>
+                <Tabs.Screen name="Ap" component={AppStack} options={{headerShown: false, title: 'Apps'}}/>
             </Tabs.Navigator>
         </NavigationContainer>
     );
