@@ -6,6 +6,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { appStyles as styles } from "./styles";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+// Ok
+
 function ToDoApp () {
     const [text, setText] = useState("");
 
