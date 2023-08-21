@@ -40,7 +40,7 @@ function ToDoApp () {
 
             <TextInput style={styles.input} 
             placeholder="Enter your text here" 
-            onChangeText={setText}
+            onChangeText={(myText) => setText(myText)}
             value = {text}
             />   
             
