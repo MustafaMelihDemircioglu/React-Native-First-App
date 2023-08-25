@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { appStyles as styles } from "./styles";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Game } from '../CounterApp/TicGame.js'
 
 function ToDoApp () {
     const [text, setText] = useState("");
@@ -151,6 +152,15 @@ const Home = ({ navigation }) => {
             style={styles2.buttonStyle}>
                 <Text>To Do App</Text>
             </TouchableOpacity>
+
+            <TouchableOpacity
+            onPress={() => {
+                navigation.navigate("Tic Tac Toe Game")
+            }}
+            style={styles2.buttonStyle}>
+                <Text>Tic Tac Toe Game</Text>
+            </TouchableOpacity>
+
         </View>
     );
 }
@@ -164,6 +174,7 @@ const AppStack = () => {
             <Stack.Screen name="Apps" component={Home} />
             <Stack.Screen name="Counter App" component={CounterApp} />
             <Stack.Screen name="To Do App" component={ToDoApp} />
+            {/*<Stack.Screen name="Tic Tac Toe Game" component={Game} />*/}
         </Stack.Navigator>
 
     
@@ -210,8 +221,9 @@ const styles2 = StyleSheet.create({
     buttonContainer: {
         margin: 10,
         justifyContent: "space-evenly",
-        flexDirection: "row"
-    },
+        flexDirection: "column",
+        alignItems: 'center',
+        },
 
     buttonStyle: {
         margin: 8,
@@ -219,7 +231,7 @@ const styles2 = StyleSheet.create({
         backgroundColor: "lightblue",
         paddingVertical: 16,
         paddingHorizontal: 32,
-    }
+        },
 
     }
 )
