@@ -174,7 +174,7 @@ const AppStack = () => {
             <Stack.Screen name="Apps" component={Home} />
             <Stack.Screen name="Counter App" component={CounterApp} />
             <Stack.Screen name="To Do App" component={ToDoApp} />
-            {/*<Stack.Screen name="Tic Tac Toe Game" component={Game} />*/}
+            <Stack.Screen name="Tic Tac Toe Game" component={Game} />
         </Stack.Navigator>
 
     
@@ -219,7 +219,8 @@ export default App;
 const styles2 = StyleSheet.create({
 
     buttonContainer: {
-        margin: 10,
+        margin: 16,
+        marginHorizontal: 64,
         justifyContent: "space-evenly",
         flexDirection: "column",
         alignItems: 'center',
@@ -230,7 +231,10 @@ const styles2 = StyleSheet.create({
         borderRadius: 4,
         backgroundColor: "lightblue",
         paddingVertical: 16,
-        paddingHorizontal: 32,
+        justifyContent: 'center',
+        textAlign: 'center',
+        alignItems: 'center',
+        width: '100%'
         },
 
     }

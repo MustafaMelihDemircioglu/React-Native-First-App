@@ -3,6 +3,7 @@ import { Text, TouchableOpacity, Dimensions, SafeAreaView, View, StyleSheet, But
 import { useState } from 'react';
 
 function Box(props) {
+
   // Get the screen width.
   const screenWidth = Dimensions.get('window').width;
   // Calculate the width and height based on screen dimensions
@@ -164,4 +165,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Game;
+export { Game };
