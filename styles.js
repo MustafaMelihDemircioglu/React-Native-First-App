@@ -80,3 +80,27 @@ export const appStyles = StyleSheet.create({
     },
 
 });
+
+export const styles2 = StyleSheet.create({
+
+    buttonContainer: {
+        margin: 16,
+        marginHorizontal: 64,
+        justifyContent: "space-evenly",
+        flexDirection: "column",
+        alignItems: 'center',
+        },
+
+    buttonStyle: {
+        margin: 8,
+        borderRadius: 4,
+        backgroundColor: "lightblue",
+        paddingVertical: 16,
+        justifyContent: 'center',
+        textAlign: 'center',
+        alignItems: 'center',
+        width: '100%'
+        },
+
+    }
+)
