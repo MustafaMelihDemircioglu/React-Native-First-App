@@ -41,7 +41,7 @@ export const appStyles = StyleSheet.create({
 
     inputWithSearchButton: {
         paddingVertical: 12,
-        paddingHorizontal: 16,
+        paddingHorizontal: 8,
         borderRadius: 6,
         borderWidth: 1,
         borderColor: "#ddd",
@@ -79,7 +79,8 @@ export const appStyles = StyleSheet.create({
 
     taskText: {
         fontSize: 18,
-        paddingVertical: 12
+        paddingVertical: 12,
+        marginHorizontal: 8
     },
 
     taskDelete: {

@@ -10,34 +10,65 @@ const token = 'jGSwxCOU/NEA27+F8LCXLw==r1LDkxH3rPCV59u3'
 
 function CatSearch({ navigation }) {
 
+    const [isLoading, setIsLoading] = useState(false)
     const [isTapped, setIsTapped] = useState(0)
     const [data, setData] = useState(null)
     const [text, setText] = useState("");
 
-    const getData = async (searchValue) => {
-        
+    const getData = async () => {
+        setIsLoading(true);
         try {
-            const resp = await axios.get(`${baseUrl}${searchValue}`, {
+            const resp = await axios.get(`${baseUrl}${text}`, {
                 headers: {
-                    'x-api-key': token
+                    'X-Api-Key': token
                 }
             });
             setData(resp.data);
-            console.log(resp.data);
+            setIsLoading(false);
         } catch (err) {
-            
+            setIsLoading(false);
             console.log(err);
         }
     };
 
     useEffect(() => {
-        getData();
+        if (isTapped > 0) {
+            getData();
+        }
     }, [isTapped])
 
     const searchButtonPressed = () => {
-        console.log("Yes");
-        setIsTapped(isTapped+1)
-        console.log(isTapped)
+        setIsTapped(isTapped + 1);
+    }
+
+    const header = () => {
+        return (
+            <View>
+                <Text style={styles.title}>Cat Breeds</Text>
+            </View>
+        );
+    };
+
+    const GetContent = () => {
+        if (isLoading) {
+            return (
+                <SafeAreaView style={styles.container}>
+                    <ActivityIndicator size='large' />
+                </SafeAreaView>
+            );
+        }
+        return (
+
+            <FlatList ListHeaderComponent={header}
+                data={data}
+                renderItem={({ item, index }) =>
+                    <View style={{ borderBottomWidth: 0.5, marginHorizontal: 8 }}>
+                        <Text style={appStyles.taskText}>{item.name}</Text>
+                    </View>
+                }
+            />
+
+        );
     }
 
     return (
@@ -49,13 +80,7 @@ function CatSearch({ navigation }) {
                 onSubmitEditing={searchButtonPressed}
             />
 
-            <FlatList
-                data={data}
-                renderItem={({ item, index }) =>
-                    <View style={styles.taskContainer}>
-                        <Text style={styles.taskText}>{item}</Text>
-                    </View>}
-            />
+            <GetContent />
         </SafeAreaView>
 
     );
@@ -107,6 +132,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 24,
         marginVertical: 12,
+        marginHorizontal: 8,
         fontStyle: 'italic',
         fontWeight: 'bold'
     },
