@@ -5,8 +5,8 @@ export const appStyles = StyleSheet.create({
     safeArea: {
         flex: 1,
         margin: 16,
-        
-      },
+
+    },
 
     container: {
         flex: 1,
@@ -14,6 +14,13 @@ export const appStyles = StyleSheet.create({
 
     title: {
         fontSize: 30,
+        marginBottom: 16,
+    },
+
+    featureTitle: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginBottom: 8,
     },
 
     subtitle: {
@@ -73,7 +80,7 @@ export const appStyles = StyleSheet.create({
         backgroundColor: "orangered",
         alignSelf: "flex-end",
         alignItems: "center",
-        
+
     },
 
     taskDeleteText: {
@@ -90,7 +97,7 @@ export const styles2 = StyleSheet.create({
         justifyContent: "space-evenly",
         flexDirection: "column",
         alignItems: 'center',
-        },
+    },
 
     buttonStyle: {
         margin: 8,
@@ -101,7 +108,7 @@ export const styles2 = StyleSheet.create({
         textAlign: 'center',
         alignItems: 'center',
         width: '100%'
-        },
+    },
 
-    }
+}
 )
