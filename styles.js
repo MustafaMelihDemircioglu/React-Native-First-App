@@ -5,6 +5,7 @@ export const appStyles = StyleSheet.create({
     safeArea: {
         flex: 1,
         margin: 16,
+        
       },
 
     container: {
