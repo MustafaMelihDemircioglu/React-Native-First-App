@@ -9,6 +9,7 @@ import CounterApp from "./Screens/CounterApp.js";
 import ToDoApp from "./Screens/ToDoApp.js";
 import { styles2 } from "./styles.js";
 import CatDetail from "./Screens/CatDetail.js";
+import CatSearch from "./Screens/CatSearch.js";
 
 const Home = ({ navigation }) => {
     return (
@@ -47,6 +48,14 @@ const Home = ({ navigation }) => {
                 <Text>Cat API</Text>
             </TouchableOpacity>
 
+            <TouchableOpacity
+                onPress={() => {
+                    navigation.navigate("Cat Search")
+                }}
+                style={styles2.buttonStyle}>
+                <Text>Cat Search</Text>
+            </TouchableOpacity>
+
         </View>
     );
 }
@@ -62,9 +71,9 @@ const AppStack = () => {
             <Stack.Screen name="To Do App" component={ToDoApp} />
             <Stack.Screen name="Tic Tac Toe Game" component={Game} />
             <Stack.Screen name="Cat API" component={AxiosExercise} />
+            <Stack.Screen name="Cat Search" component={CatSearch} />
             <Stack.Screen name="Cat Detail" component={CatDetail} />
         </Stack.Navigator>
-
 
     );
 }

@@ -39,6 +39,16 @@ export const appStyles = StyleSheet.create({
         marginTop: 8,
     },
 
+    inputWithSearchButton: {
+        paddingVertical: 12,
+        paddingHorizontal: 16,
+        borderRadius: 6,
+        borderWidth: 1,
+        borderColor: "#ddd",
+        fontSize: 18,
+        marginTop: 8,
+    },
+
     buttonContainer: {
         paddingVertical: 12,
         paddingHorizontal: 16,
