@@ -1,13 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import { Text, View, TextInput, FlatList, SafeAreaView, ActivityIndicator, Dimensions, ScrollView } from "react-native";
+import { Text, View, TextInput, FlatList, SafeAreaView, ActivityIndicator, Dimensions, ScrollView, Image } from "react-native";
 import { appStyles as styles } from "../styles";
 import { useEffect } from "react";
-import Image from 'react-native-image-progress';
-import Progress from 'react-native-progress';
-
-const INDICATORS = [undefined, Progress.Bar, Progress.Circle, Progress.Pie];
-
+import ImageItem from "../components/ImageItem";
 
 function CatDetail({ route, navigation }) {
 
@@ -37,20 +33,14 @@ function CatDetail({ route, navigation }) {
                     {details.name}
                 </Text>
 
-                <Image
-                    source={{ uri: details.image.url }}
-                    style={{
-                        width: '100%',
-                        aspectRatio: aspectRatioValue,
-                        borderRadius: 10,
-                    }}
-                    indicator={ProgressBar} 
-                />
+                <ImageItem aspectRatio={aspectRatioValue} sourceURL={details.image.url}></ImageItem>
 
                 <View style={{ flexDirection: 'row' }}>
                     <Text>hey</Text>
                     <Text>ho</Text>
                 </View>
+
+                
 
             </ScrollView>
         </SafeAreaView >

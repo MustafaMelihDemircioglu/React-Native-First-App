@@ -3,9 +3,6 @@ import { Text, TouchableOpacity, Dimensions, SafeAreaView, View, StyleSheet, But
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { appStyles } from '../styles';
-import  CatDetail  from './CatDetail'
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const baseUrl = 'https://api.thecatapi.com/v1/breeds';
 const token = 'live_TR2UAnkPtMEtlUV1gl7I8zWG6o0oxPnRdRMMgWVlE1CE5c0WUA512gdbXWzcKf00'
