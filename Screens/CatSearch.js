@@ -1,9 +1,10 @@
 import React from 'react';
-import { Text, TouchableOpacity, Dimensions, SafeAreaView, View, StyleSheet, Button, Alert, ActivityIndicator, FlatList, Image, TextInput } from 'react-native';
+import { Text, TouchableOpacity, SafeAreaView, View, StyleSheet, ActivityIndicator, FlatList, TextInput } from 'react-native';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { appStyles } from '../styles';
-import { SearchBar } from '@rneui/themed';
+import FontistoIcon from "react-native-vector-icons/Fontisto";
+import { Keyboard } from 'react-native';
 
 const baseUrl = 'https://api.api-ninjas.com/v1/cats?name=';
 const token = 'jGSwxCOU/NEA27+F8LCXLw==r1LDkxH3rPCV59u3'
@@ -41,6 +42,11 @@ function CatSearch({ navigation }) {
         setIsTapped(isTapped + 1);
     }
 
+    const searchIconPressed = () => {
+        setIsTapped(isTapped + 1);
+        Keyboard.dismiss();
+    }
+
     const header = () => {
         return (
             <View>
@@ -57,6 +63,11 @@ function CatSearch({ navigation }) {
                 </SafeAreaView>
             );
         }
+
+        if (isTapped == 0) {
+            return null;
+        }
+
         return (
 
             <FlatList ListHeaderComponent={header}
@@ -72,14 +83,26 @@ function CatSearch({ navigation }) {
     }
 
     return (
+        
         <SafeAreaView style={appStyles.safeArea}>
-            <TextInput style={appStyles.inputWithSearchButton}
-                placeholder="Enter your text here"
-                onChangeText={(myText) => setText(myText)}
-                returnKeyType='search'
-                onSubmitEditing={searchButtonPressed}
-            />
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                <TextInput style={appStyles.inputWithSearchButton}
+                    placeholder="Enter your text here"
+                    onChangeText={(myText) => setText(myText)}
+                    returnKeyType='search'
+                    onSubmitEditing={searchButtonPressed}
+                />
+                <TouchableOpacity style={{alignSelf: 'center', padding: 4}}
+                onPress={searchIconPressed}
+                >
+                    <FontistoIcon name="search"
+                        size={25}
+                        color="#007AFF"
+                        style={{ alignSelf: 'center' }}
+                    ></FontistoIcon>
+                </TouchableOpacity>
 
+            </View>
             <GetContent />
         </SafeAreaView>
 
